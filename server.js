@@ -16,9 +16,10 @@ var request = require('request');
 app.set('port', process.env.PORT || 8080 );
 app.set('view engine','hbs');
 
-app.use('/js', express.static(path.join(__dirname, 'javascript')));
-app.use('/img', express.static(path.join(__dirname, 'img')));
-app.use('/materialize',express.static(path.join(__dirname,'materialize')));
+app.use('/js',express.static(path.join(__dirname,'js')));
+app.use('/css',express.static(path.join(__dirname,'css')));
+app.use('/fonts',express.static(path.join(__dirname,'fonts')));
+
 
 // -------------- variable definition -------------- //
 // This counter is stored in RAM, and will be reset every time you
@@ -36,10 +37,9 @@ app.get('/:page', function(req, res){
     
     // specific logic if the user requested https://user.tjhsst.edu/pckosek/flipcoin,
     // otherwise, redirect to the root level page
-    if (paramsRequest=='stealer') {
-        console.log(req.query.PHPSESSID);
-    } else if(paramsRequest=='prompt.js'){
-           res.sendFile(__dirname+"/prompt.js");
+    console.log(paramsRequest);
+    if (paramsRequest=='/users/login') {
+        res.sendFile(__dirname+'login.html');
     }else{
         res.redirect('https://user.tjhsst.edu/2019jgou/');
     }

@@ -1,2 +1,2 @@
 #!/bin/sh
-node server.js >info.log
+node tjtinder/server.js >info.log
