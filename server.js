@@ -17,8 +17,9 @@ app.set('port', process.env.PORT || 8080 );
 app.set('view engine','hbs');
 
 app.use('/js', express.static(path.join(__dirname, 'javascript')));
-app.use('/css', express.static(path.join(__dirname, 'css')));
 app.use('/img', express.static(path.join(__dirname, 'img')));
+app.use('/materialize',express.static(path.join(__dirname,'materialize')));
+
 // -------------- variable definition -------------- //
 // This counter is stored in RAM, and will be reset every time you
 // restart the server.
