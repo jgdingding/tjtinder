@@ -1,23 +1,50 @@
 <!doctype html>
 <html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="css/nav_bar.css">
-        <link rel="icon" href="https://user.tjhsst.edu/2019jgou/img/fire.png">
-        <title>TJTinder - Register</title>
-	    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
-	    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-	<script type="text/javascript" src="js/materialize.min.js"></script>
-    </head>
-    <body>
-	<nav>
-		<div class="nav-wrapper" style="background-color:#FF6600">
-			<a href="https://user.tjhsst.edu/tjtinder/" class="brand-logo" style="margin-left:1.5%">TJTinder</a>
-				<ul id="nav-mobile" class="right hide-on-med-and-down">
-				<li><a href="register">Register</a></li>
-				<li><a href="login">Login</a></li>
-			</ul>
-		</div>
-	</nav>
-	<p>register</p>
-    </body>
+  <head>
+    <link rel="stylesheet" type="text/css" href="css/nav_bar.css">
+    <link rel="icon" href="https://user.tjhsst.edu/2019jgou/img/fire.png">
+    <title>TJTinder - Register</title>
+    <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+  </head>
+  <body>
+    <nav>
+      <div class="nav-wrapper" style="background-color:#FF6600">
+        <a href="https://user.tjhsst.edu/tjtinder/" class="brand-logo" style="margin-left:1.5%">TJTinder</a>
+        <ul id="nav-mobile" class="right hide-on-med-and-down">
+          <li><a href="register">Register</a></li>
+          <li><a href="login">Login</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class=input-field>
+      <div class="row">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s6">
+                <input placeholder="Placeholder" id="first_name" type="text" class="validate">
+                <label for="first_name">First Name</label>
+              </div>
+              <div class="input-field col s6">
+                <input id="last_name" type="text" class="validate">
+                <label for="last_name">Last Name</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="email" type="email" class="validate">
+                <label for="email">Email</label>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input-field col s12">
+                <input id="password" type="password" class="validate">
+                <label for="password">Password</label>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+  </body>
 </html>
