@@ -10,8 +10,8 @@ function Register (){
   con.connect(function(err) {
     if (err) throw err;
     console.log("Connected!");
-    var sql = "INSERT INTO Persons (FirstName, LastName, Email, Password) VALUES (document.getElementById("first_name").innerHTML, document.getElementById("last_name").innerHTML, document.getElementById("email").innerHTML, document.getElementById("password").innerHTML)"
-    con.query(sql, [VALUES], function(err, result)) {
+    var sql = "INSERT INTO Persons (FirstName, LastName, Email, Password) VALUES (document.getElementById('first_name').innerHTML, document.getElementById('last_name').innerHTML, document.getElementById('email').innerHTML, document.getElementById('password').innerHTML)";
+    con.query(sql, [VALUES], function(err, result) {
       if(err)throw err;
       console.log("Registered");
     });

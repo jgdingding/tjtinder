@@ -19,6 +19,17 @@ app.set('view engine','hbs');
 app.use('/js',express.static(path.join(__dirname,'js')));
 app.use('/css',express.static(path.join(__dirname,'css')));
 app.use('/fonts',express.static(path.join(__dirname,'fonts')));
+app.use(session({
+  store: new RedisStore({
+    url: config.redisStore.url
+  }),
+  secret: config.redisStore.secret,
+  resave: false,
+  saveUninitialized: false
+}));
+app.use(passport.initialize());
+app.use(passport.session());
+
 
 
 // -------------- variable definition -------------- //
