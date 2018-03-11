@@ -33,13 +33,15 @@ app.get('/', function(req, res){
 });
 
 app.get('/login',function(req,res){
-    console.log(__dirname);
    res.sendFile(__dirname+'/login.html'); 
 });
 
 app.get('/register',function(req,res){
-    console.log("testregister");
    res.sendFile(__dirname+'/register.html'); 
+});
+
+app.get('/match',function(req,res){
+   res.sendFile(__dirname+'/match.html'); 
 });
 
 app.get('/:page', function(req, res){
