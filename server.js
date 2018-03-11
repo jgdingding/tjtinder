@@ -32,14 +32,24 @@ app.get('/', function(req, res){
     res.sendFile(__dirname + '/index.html');
 });
 
+app.get('/login',function(req,res){
+    console.log("test");
+   res.sendFile(__dirname+'login.html'); 
+});
+
+app.get('/register',function(req,res){
+    console.log("testregister");
+   res.sendFile(__dirname+'register.html'); 
+});
+
 app.get('/:page', function(req, res){
     var paramsRequest = req.params.page;
     
     // specific logic if the user requested https://user.tjhsst.edu/pckosek/flipcoin,
     // otherwise, redirect to the root level page
-    console.log(paramsRequest);
-    if (paramsRequest=='/users/login') {
-        res.sendFile(__dirname+'login.html');
+    console.log(paramsRequest)
+    if (paramsRequest=='/login') {
+        res.redirect('https://user.tjhsst.edu/2019jgou/');
     }else{
         res.redirect('https://user.tjhsst.edu/2019jgou/');
     }
