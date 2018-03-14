@@ -8,6 +8,8 @@ var app = express();
 var path = require('path');
 var hbs = require('hbs');
 var request = require('request');
+var mysql = require('mysql');
+
 
 
 // // -------------- express initialization -------------- //
@@ -19,16 +21,6 @@ app.set('view engine','hbs');
 app.use('/js',express.static(path.join(__dirname,'js')));
 app.use('/css',express.static(path.join(__dirname,'css')));
 app.use('/fonts',express.static(path.join(__dirname,'fonts')));
-app.use(session({
-  store: new RedisStore({
-    url: config.redisStore.url
-  }),
-  secret: config.redisStore.secret,
-  resave: false,
-  saveUninitialized: false
-}));
-app.use(passport.initialize());
-app.use(passport.session());
 
 
 
@@ -67,6 +59,30 @@ app.get('/:page', function(req, res){
         res.redirect('https://user.tjhsst.edu/2019jgou/');
     }
 });
+
+app.get('/makeProfile',function(req,res){
+    console.log("testtesttest");
+  var con = mysql.createConnection({
+    host: "mysql1.csl.tjhsst.edu:3306",
+    user: "site_tjtinder",
+    password: "EktntpYTB7VYwPpeNHgtE4UN"
+  });
+
+  con.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected!");
+    first=req.query.first;
+    last=req.query.last;
+    email=req.query.email;
+    pw=req.query.pass;
+    var sql = "INSERT INTO Persons (FirstName, LastName, Email, Password) VALUES ("+first+", "+last+", "+email+", "+pw+")";
+    con.query(sql, [VALUES], function(err, result) {
+      if(err) throw err;
+      console.log("Registered");
+    });
+  });
+});
+
 
 // -------------- listener -------------- //
 // // The listener is what keeps node 'alive.' 

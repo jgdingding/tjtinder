@@ -1,19 +1,14 @@
-function Register (){
-  var mysql = require('mysql');
+firstname=document.getElementById("first_name");
+lastname=document.getElementById("last_name");
+email=document.getElementById("email");
+password=document.getElementById("password");
 
-  var con = mysql.createConnection({
-    host: "mysql1.csl.tjhsst.edu:3306",
-    user: "site_tjtinder",
-    password: "EktntpYTB7VYwPpeNHgtE4UN"
-  });
-
-  con.connect(function(err) {
-    if (err) throw err;
-    console.log("Connected!");
-    var sql = "INSERT INTO Persons (FirstName, LastName, Email, Password) VALUES (document.getElementById('first_name').innerHTML, document.getElementById('last_name').innerHTML, document.getElementById('email').innerHTML, document.getElementById('password').innerHTML)";
-    con.query(sql, [VALUES], function(err, result) {
-      if(err)throw err;
-      console.log("Registered");
-    });
-  });
+function reg(){
+    if(firstname.value.length!==undefined && lastname.value.length!==undefined && email.value.length!==undefined && password.value.length!==undefined){
+        $.get('makeProfile',{first:firstname.value,last:lastname.value,email:email.value,pass:password.value},function(data){
+        });
+        console.log("success! finally");
+    }else{
+        location.reload();
+    }
 }
